@@ -1,0 +1,117 @@
+name: Air purifier
+products:
+  - id: gxdhbxjrsryjep5a
+    manufacturer: AlecoAir
+    model: P15 Roubiq
+entities:
+  - entity: fan
+    translation_key: fan_with_presets
+    dps:
+      - id: 1
+        name: switch
+        type: boolean
+      - id: 4
+        name: speed
+        type: string
+        mapping:
+          - dps_val: low
+            value: 33
+          - dps_val: mid
+            value: 66
+          - dps_val: high
+            value: 100
+      - id: 3
+        name: preset_mode
+        type: string
+        mapping:
+          - dps_val: auto
+            value: auto
+          - dps_val: manual
+            value: manual
+          - dps_val: sleep
+            value: sleep
+  - entity: sensor
+    class: pm25
+    dps:
+      - id: 2
+        name: sensor
+        type: integer
+        unit: ugm3
+        class: measurement
+        mapping:
+          - scale: 10
+  - entity: sensor
+    translation_key: air_quality
+    dps:
+      - id: 21
+        name: sensor
+        type: string
+  - entity: sensor
+    translation_key: filter_life
+    dps:
+      - id: 5
+        name: sensor
+        type: integer
+        unit: "%"
+        class: measurement
+  - entity: sensor
+    name: Filter time remaining
+    category: diagnostic
+    dps:
+      - id: 16
+        name: sensor
+        type: integer
+        unit: h
+        class: measurement
+  - entity: sensor
+    translation_key: time_remaining
+    category: diagnostic
+    dps:
+      - id: 19
+        name: sensor
+        type: integer
+        unit: min
+  - entity: switch
+    translation_key: ionizer
+    category: config
+    dps:
+      - id: 6
+        name: switch
+        type: boolean
+  - entity: switch
+    translation_key: uv_sterilization
+    category: config
+    dps:
+      - id: 9
+        name: switch
+        type: boolean
+  - entity: light
+    translation_key: display
+    category: config
+    dps:
+      - id: 8
+        name: switch
+        type: boolean
+  - entity: lock
+    translation_key: child_lock
+    category: config
+    dps:
+      - id: 7
+        name: lock
+        type: boolean
+  - entity: select
+    translation_key: timer
+    category: config
+    dps:
+      - id: 18
+        name: option
+        type: string
+        mapping:
+          - dps_val: cancel
+            value: cancel
+          - dps_val: "2h"
+            value: "2h"
+          - dps_val: "4h"
+            value: "4h"
+          - dps_val: "8h"
+            value: "8h"
